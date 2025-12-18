@@ -12,7 +12,8 @@ class ProgectController extends Controller
      */
     public function index()
     {
-        //
+        $progects = auth()->user()->progects;
+        return view('progect.index', compact('progects'));
     }
 
     /**
@@ -60,6 +61,7 @@ class ProgectController extends Controller
      */
     public function destroy(Progect $progect)
     {
-        //
+        $progect->delete();
+        return redirect('/progects');
     }
 }
