@@ -21,7 +21,7 @@ class ProgectController extends Controller
      */
     public function create()
     {
-        //
+        return view('progect.create');
     }
 
     /**
@@ -29,7 +29,14 @@ class ProgectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        $data['user_id'] = auth()->id();
+        Progect::create($data);
+
+        return redirect('/progects');
     }
 
     /**

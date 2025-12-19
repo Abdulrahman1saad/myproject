@@ -1,7 +1,7 @@
 @extends('layouts.app');
 @section('content')
     <header class="d-flex justify-content-between align-items-center my-5" dir="rtl">
-        <div class="h6  text-dark">
+        <div class="h6 text-dark">
             <a href="/progects" class="text-decoration-none text-dark">المشاريع</a> 
         </div>
         <div>
@@ -10,12 +10,12 @@
     </header>
     <section class="row text-end" dir="rtl">
         @forelse($progects as $progect)
-            <div class="col-lg-4 col-md-6 col-12 mmb-4">
+            <div class="col-lg-4 col-md-6 col-12 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        @include('progects.footer')
+                        @include('progect.footer')
                         <div class="statuse mb-2">
-                            @switch($progects->status)
+                            @switch($progect->status)
                                 @case(1)
                                     <span class="text-success">مكتمل </span>
                                     @break
@@ -35,7 +35,7 @@
                             </a>
                         </h5>
                         <div class="card-text mb-3">
-                            {{ $progect->description }}
+                            {{ Str::limit( $progect->description, 150 ) }}
                         </div>
                     </div>
                 </div>

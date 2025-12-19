@@ -6,11 +6,11 @@
                 {{ $progect->created_at->diffForHumans() }}
             </div>
         </div>
-        <div class="d-flex align-items-center me-3">
-            <img src="/images/list-check" alt="list-check" >
+        <div class="d-flex align-items-center me-3">  
+            <img src="/images/list-check.svg" alt="list-check.svg" >
         </div>
-        <div class="d-flex align-items-center me-aauto">
-            <formm action="/progects{{ $progect->id }}" method="POST" class="hide-submit">
+        <div class="d-flex align-items-center me-auto">
+            <form action="/progects{{ $progect->id }}" method="POST" class="hide-submit">
                @csrf
                @method('DELETE')
                <input type="submit" class="btn btn-delete mt-2" value""">
