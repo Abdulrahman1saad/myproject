@@ -44,7 +44,7 @@ class ProgectController extends Controller
      */
     public function show(Progect $progect)
     {
-        //
+        return view('progect.show', compact('progect'));
     }
 
     /**
@@ -60,7 +60,8 @@ class ProgectController extends Controller
      */
     public function update(Request $request, Progect $progect)
     {
-        //
+        $progect->update(['status' => request('status')]);
+        return redirect('/progects'. $progect->id);
     }
 
     /**
