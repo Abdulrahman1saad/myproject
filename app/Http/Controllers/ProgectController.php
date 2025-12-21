@@ -60,8 +60,14 @@ class ProgectController extends Controller
      */
     public function update(Request $request, Progect $progect)
     {
-        $progect->update(['status' => request('status')]);
-        return redirect('/progects'. $progect->id);
+         $data = request()->validate([
+            'title' => 'sometimes|required',
+            'description' => 'sometimes|required',
+            'status' => 'sometimes|required'
+        ]);
+
+        $progect->update($data);
+        return redirect('/progects/' . $progect->id);
     }
 
     /**

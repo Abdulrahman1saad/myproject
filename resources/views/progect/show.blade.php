@@ -58,12 +58,30 @@
                             
                         
                     </div>
-                        {{-- أعضاء المشروع --}}
+                       
                 </div>
 
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-8">
         {{-- مهام المشروع --}}
+        @foreach ($progect->tasks as $task)
+        <div class="card p-3 mb-3 d-flex flex-row align-items-center">
+            <div>
+                {{ $task->body }}
+            </div>
+        </div>
+        @endforeach
+        <div class="card">
+            <form action="/progects/{{ $progect->id }}/tasks" method="POST" class="p-3 d-flex gap-2 ">
+                @csrf
+                @method('POST')
+                <input type="text" name="body" class="form-control p-2 ml-2" placeholder="إضافة مهمة جديدة">
+                <button type="submit" class="btn btn-primary">اضف</button>
+
+            </form>
+        </div>
+    
+
     </div>
 </section>
 @endsection

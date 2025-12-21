@@ -15,5 +15,8 @@
                @method('DELETE')
                <input type="submit" class="btn btn-delete mt-2" value" "">
             </form>
+        </div>
+        
+        
     </div>
 </div>
